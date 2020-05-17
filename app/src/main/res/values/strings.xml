@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">StopWatch</string>
+    <string name="tvTimer">Counter</string>
+    <string name="butStart">Start</string>
+    <string name="butStop">Stop</string>
+    <string name="butRest">Rest</string>
+    <string name="butResume">Resume</string>
+</resources>
