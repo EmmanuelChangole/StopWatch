@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private int minutes;
     private int hours;
     private boolean isRunning=false;
+    private boolean wasRunning;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
             minutes=savedInstanceState.getInt("min");
             hours=savedInstanceState.getInt("hr");
             isRunning=savedInstanceState.getBoolean("boolean");
+            wasRunning=savedInstanceState.getBoolean("wasRunning");
 
 
         }
@@ -129,6 +131,41 @@ public class MainActivity extends AppCompatActivity {
         outState.putInt("min",minutes);
         outState.putInt("hr",hours);
         outState.putBoolean("boolean",isRunning);
+        outState.putBoolean("wasRunning",wasRunning);
+
+    }
+/*
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        wasRunning=isRunning;
+        isRunning=false;
+    }
+*/
+
+  /*  @Override
+    protected void onStart() {
+        super.onStart();
+
+        if(wasRunning)
+        {
+            isRunning=true;
+        }
+    }*/
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        wasRunning=isRunning;
+        isRunning=false;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(wasRunning)
+        { isRunning=true;}
 
     }
 }
